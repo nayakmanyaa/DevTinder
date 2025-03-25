@@ -1,0 +1,46 @@
+- Create a repository
+- Initialize the repository
+- node_modules, package.json, package-lock.json
+- Install express
+- Create a server
+- listen to port 7777
+- Write request handlers for some routes
+- Install nodemon and update scripts inside package.json
+- What are dependencies
+- What is the use of "-g" while npm install
+- Difference between caret and tilde (^ , ~)
+
+- initialize git
+- .gitognore
+- create a remote repo on gitHub
+- Push all code to remote origin
+- Play with routes and route-extensions
+- Order of the route matter
+- Make a workshop on postman and test Api call
+- write logic to handle GET, POST, PATCH, DELETE API calls and test them on postman
+- Explore the routing and use of ?, *, +, () in the routes
+- Reading the query params in routes
+- Reading the dynamic routes
+
+- Multiple Route  - Play with it
+- next()
+- next function and errors along with res.send()
+- app.use("/route, rH, [rH2, rH3], rH4, rH5)
+- what is middleware
+- How express JS handles requests behind the scenes
+- Difference between app.use and app.all
+- app.use doesnot match the exact route, for example "/" will give results for "/user", "/donar", etc (of GET, POST, PATCH, etc)
+- app.all match and give results for exact route, for example "/manya" will only give results for "/manya" (of GET, POST, PATCH, etc)
+- write a dummy auth middleware for admin
+- write a dummy auth middleware for all user admin
+- write a dummy auth middleware for all user routes, exccept /user/login
+- error handling using app.use("/", (err, req, res, next) => {});
+
+- Create a free cluster on MongoDB official website (Mongo Atlas)
+- Install mongodb library
+- Connect your application to the database "Connection-url"/devTinder
+- Call the connectDB function and connect to database before staring application on 7777
+- Create a userSchema & userModel
+- Create POST /signup API to add data to database
+- Push some documents using API calls from postman
+- Error handling using try, catch
