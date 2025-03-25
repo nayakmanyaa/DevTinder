@@ -14,7 +14,7 @@ app.post("/signup", async (req, res) => {
         res.send("User added successfully")
     } catch (err) {
         res.send(400).send("Error saving the user" + err.message);
-    }
+    }  
 })
 
 connectDB() 
