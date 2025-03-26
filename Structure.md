@@ -62,4 +62,8 @@
 - add default 
 - create a costum validate function fro grnder
 - Improve the DB schema - PUT all appropiate validaton on each field in schema
-- Add timestamps
+- Add timestamps to the userScehma
+- Add API level validation on Patch request & Signup post api
+- DATA Sanitization - Add API validation for each field
+- Install validators
+- Explore validator library function ans use it for password, email, photoUrl
