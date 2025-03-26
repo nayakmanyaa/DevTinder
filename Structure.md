@@ -48,3 +48,18 @@
 - Difference between JS object and JSON 
 - Add the express.json middleware to your app
 - Make your signup API dynamic to recieve data from the end user
+- API - get user by email
+- feed API - GET /feed - get all the users from the database
+- we are finding _id either from req.body.userId or req.body._id
+- difference between patch and put
+- API - update a user
+- Explore the Mongoose Documentation for Model method
+- what are the "options" in a model.findOneAndUpdate method, explore more about it
+- API - update the user with emailId
+
+-Explore schematype options from the documentation
+- add required, unique, lowercase, min, minLength, trim
+- add default 
+- create a costum validate function fro grnder
+- Improve the DB schema - PUT all appropiate validaton on each field in schema
+- Add timestamps
