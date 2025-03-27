@@ -26,7 +26,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
         validate(value) {
-            if(!validate.isStrongPassword(value)) {
+            if(!validator.isStrongPassword(value)) {
                 throw new Error("Enter a strong passwrod:" + value)
             }
         }
@@ -47,7 +47,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         default: "https://geographyandyou.com/images/user-profile.png",
         validate(value) {
-            if(!validate.isUrl(value)) {
+            if(!validator.isURL(value)) {
                 throw new Error("Url of photo is not valid!")
             }
         }

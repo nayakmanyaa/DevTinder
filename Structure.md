@@ -57,10 +57,10 @@
 - what are the "options" in a model.findOneAndUpdate method, explore more about it
 - API - update the user with emailId
 
--Explore schematype options from the documentation
+- Explore schematype options from the documentation
 - add required, unique, lowercase, min, minLength, trim
 - add default 
-- create a costum validate function fro grnder
+- create a costum validate function for gender
 - Improve the DB schema - PUT all appropiate validaton on each field in schema
 - Add timestamps to the userScehma
 - Add API level validation on Patch request & Signup post api
@@ -74,3 +74,10 @@
 - Create PasswordHash using bcrypt.hash & save the user is excrypted password
 - create login API
 - Compare passwords and throw errors if email or password is invalid
+
+- install cookie-parser
+- just send a dummy cookie to user
+- create GET /profile API and check if you get the cookie back
+- install jsonwebtoken
+- In Login API, after email and password validation, create a JWT token and send it to user in cookie
+- read the cookies inside your profile API and find the logged in user

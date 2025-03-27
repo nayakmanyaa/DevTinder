@@ -5,6 +5,8 @@ const app = express();
 const { validateSignUpData } = require("./utils/validaton")
 const bcrypt = require("bcrypt");
 const user = require("./models/user");
+const jwt = require("jsonwebtoken");
+
 
 app.use(express.json())
 
@@ -21,7 +23,7 @@ app.post("/signup", async (req, res) => {
 
         // creating a new instance of user model
         // const user = new User(req.body) // not a good code
-        const user = new user({
+        const user = new User({
             firstName,
             lastName,
             emailId, 
@@ -31,33 +33,59 @@ app.post("/signup", async (req, res) => {
         await user.save();
         res.send("User added successfully")
     } catch (err) {
-        res.send(400).send("Error:" + err.message);
+        res.status(400).send("Error:" + err.message);
     }  
 })  
 
 app.post("/login", async (req, res) => {
     try{
         const { emailId, password } = req.body
-        const user = User.findOne({ emailId: emailId })
+        const user = await User.findOne({ emailId: emailId })
         if(!user) {
             throw new Error("Invalid credentials")
         } 
         const isPasswordValid = await bcrypt.compare(password, user.password)
-        if(!isPasswordValid) {
-            throw new Error("Invalid credentials")
+        if(isPasswordValid) {
+            // create JWT token
+            const token = await jwt.sign({_id:emailId}, "ManyaNayak")
+
+            // add the token to cookies and send the response back to the user
+            res.cookie("token", token)
+            res.send("Login successful")
+            
         } else {
-            res.send(user)
+            throw new Error("Invalid credentials")
         }
     } catch (err) {
         res.status(404).send("ERROR: " + err.message)
     }
+})
+
+// get profile
+app.get("/profile", async(req, res) => {
+    try{
+        const cookie = req.cookie
+        const { token } = cookie
+
+        const decodedMessage = await jwt.verify(token, "ManyaNayak")
+        
+        const { _id } = decodedMessage
+
+        const user = await User.findOne({_id})
+        if(!user) {
+            throw new Error("User doen't exist")
+        }
+        res.send(user);
+    } catch(err) {
+        res.status(404).send("ERROR: " +err.message)
+    }  
 })
  
 // get user by email
 app.get("/user", async(req, res) => {
     const userEmail = req.body.emailId
     try {
-        const users = User.findOne({ emailId: userEmail });
+        const users = await User.findOne({ emailId: userEmail });
         if(user.length === 0) {
             res.status(404).send("User Not Found!")
         } else {
@@ -92,7 +120,7 @@ app.delete("/user", async(req, res) => {
 
 // updating a user data
 app.patch("/user/:userId", async(req,res) => {
-    const userId = req.body.userId
+    const userId = req.params.userId;
     // const userId = req.body._id
     const data = req.body
     try {
