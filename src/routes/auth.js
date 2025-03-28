@@ -1,7 +1,7 @@
 const express = require('express');
 const authRouter = express.Router();
 
-const User = require("./models/user")
+const User = require("../models/user")
 const { validateSignUpData } = require('../utils/validaton');
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -116,4 +116,4 @@ authRouter.post("/login", async (req, res) => {
 //     }
 // })  
 
-module.exports = router;
+module.exports = authRouter;
