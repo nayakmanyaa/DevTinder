@@ -93,3 +93,18 @@
 - Create routes folder for managing auth, profile, request routers
 - Create authRouter, profileRouter, requestRouter
 - Import these routers in app.js
+- Create POST /logout API
+- Create PATCH /profile/edit
+- Create PATCH /profile/password API => fprget password API
+- Make you validate all data in every POST, PATCH api's
+
+- create connection request schema 
+- send connection request API
+- Proper validation of data
+- Think about all corner cases (for security)
+- $or query $and query in mongoose
+- schema.pre (middleware)
+- Read more about index in DB
+- What is the advantages and disadvantages of creating index
+- Read this article about compound indexes - https://www.mongodb.com/docs/manual/core/indexes/index-types/index-compound/
+- ALWAYS THINK ABOUT CORNER CASES

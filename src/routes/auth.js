@@ -57,6 +57,11 @@ authRouter.post("/login", async (req, res) => {
     }
 })
 
+authRouter.post("/logout", async (req, res) => {
+    res.cookie("token", null, { expires: new Date(Date.now()) })
+    res.send("Logout successful");
+})
+
 // get user by email
 // app.get("/user", async(req, res) => {
 //     const userEmail = req.body.emailId
